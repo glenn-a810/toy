@@ -18,15 +18,5 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'PageIndex',
-  setup() {
-    const files = defineComponent('~assets/')
-
-    return {
-      files,
-      refresh() {
-        files.value = '~assets/img_' + Math.random()
-      }
-    }
-  }
 })
 </script>
