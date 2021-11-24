@@ -11,6 +11,9 @@
       fit="scale-down"
     />
   </q-page>
+  <div>
+    <p>선택한 이미지 : </p>
+  </div>
 </template>
 
 <script>
