@@ -12,22 +12,20 @@
     />
   </q-page>
   <div>
-    <p>선택한 이미지 :</p>
+    <p>선택한 이미지 : {{ imageName }}</p>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-import { date } from 'quasar'
 
 export default defineComponent({
   name: 'PageIndex',
-  date: () => [
-    {
-      id: 1,
-      select: false,
-      imageName: '',
-    },
-  ],
+  setup() {
+    const imageName = 'img_1.jpg'
+    return {
+      imageName,
+    }
+  },
 })
 </script>
