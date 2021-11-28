@@ -12,7 +12,8 @@
     />
   </q-page>
   <div>
-    <p>선택한 이미지 : {{ imageName }}</p>
+    <!--    <p>선택한 이미지 : {{ imageName }}</p>-->
+    <input v-model="imageText" />
   </div>
 </template>
 
@@ -21,11 +22,16 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'PageIndex',
-  setup() {
-    const imageName = 'img_1.jpg'
+  data: () => {
     return {
-      imageName,
+      imageText: '',
     }
   },
+  // setup() {
+  //   const imageName = 'img_1.jpg'
+  //   return {
+  //     imageName,
+  //   }
+  // },
 })
 </script>
