@@ -12,6 +12,13 @@
     />
   </q-page>
   <div>
+    <q-btn icon="keyboard_arrow_left" label="이전" color="primary" />
+    <q-btn
+      icon-right="keyboard_arrow_right"
+      label="다음"
+      color="primary"
+      disable
+    />
     <!--    <p>선택한 이미지 : {{ imageName }}</p>-->
     <input v-model="imageText" />
   </div>
