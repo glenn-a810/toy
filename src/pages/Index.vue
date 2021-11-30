@@ -11,7 +11,7 @@
       fit="scale-down"
     />
   </q-page>
-  <div>
+  <div v-if="imageSelected">
     <q-btn icon="keyboard_arrow_left" label="이전" color="primary" />
     <q-btn
       icon-right="keyboard_arrow_right"
@@ -32,6 +32,7 @@ export default defineComponent({
   data: () => {
     return {
       imageText: '',
+      imageSelected: false,
     }
   },
   // setup() {
