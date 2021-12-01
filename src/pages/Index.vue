@@ -1,27 +1,27 @@
 <template>
-  <q-page class="flex flex-center">
+  <q-page class="full-width row justify-start items-center content-start">
     <q-img
+      class="col-4 col-md-6"
       src="~assets/img_1.jpg"
-      style="max-width: 500px; max-height: 500px"
+      style="max-width: 50%; max-height: 50%; overflow: auto; background: red"
       fit="scale-down"
     />
     <q-img
+      class="col-4 col-md-6"
       src="~assets/img_1.jpg"
-      style="max-width: 500px; max-height: 500px"
+      style="max-width: 50%; max-height: 50%; overflow: auto; background: blue"
       fit="scale-down"
     />
+    <div v-if="imageSelected" class="col-12" style="background: red">
+      <q-btn icon="keyboard_arrow_left" label="이전" color="primary" />
+      <q-btn
+        icon-right="keyboard_arrow_right"
+        label="다음"
+        color="primary"
+        disable
+      />
+    </div>
   </q-page>
-  <div v-if="imageSelected">
-    <q-btn icon="keyboard_arrow_left" label="이전" color="primary" />
-    <q-btn
-      icon-right="keyboard_arrow_right"
-      label="다음"
-      color="primary"
-      disable
-    />
-    <!--    <p>선택한 이미지 : {{ imageName }}</p>-->
-    <input v-model="imageText" />
-  </div>
 </template>
 
 <script>
@@ -31,8 +31,7 @@ export default defineComponent({
   name: 'PageIndex',
   data: () => {
     return {
-      imageText: '',
-      imageSelected: false,
+      imageSelected: true,
     }
   },
   // setup() {
