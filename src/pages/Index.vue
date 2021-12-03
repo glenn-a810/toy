@@ -20,7 +20,8 @@
     <div v-if="imageSelected" class="q-pa-md q-gutter-x-md">
       <q-btn icon="keyboard_arrow_left" label="이전" color="primary" />
       <q-btn icon-right="keyboard_arrow_right" label="다음" color="primary" />
-      <p>선택한 이미지 : {{ imageSelected }}</p>
+      <picture-input ref="pictureInput" @change="onChange"></picture-input>
+      <p v-for="ex in exifs">{{ex}}</p>
     </div>
   </q-page>
 </template>
@@ -30,15 +31,32 @@ import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'PageIndex',
-  data: () => {
+  data() {
     return {
       imageSelected: true,
+      exifs: null,
     }
   },
+  components: {
+    'picture-input': PictureInput,
+  },
+  methods: {
+    onChange(image) {
+      console.log('onChange!')
+      let vm = this
+      if (image) {
+        EXIF.getData(this.$refs.pictureInput.file, function () {
+          vm.exifs = this
+        })
+      } else {
+        console.log('not image')
+      }
+    }
+  }
   // setup() {
-  //   const imageName = 'img_1.jpg'
+  //   const imageSrc = "~assets/img_2.jpg"
   //   return {
-  //     imageName,
+  //     imageSrc,
   //   }
   // },
 })
